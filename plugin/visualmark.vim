@@ -17,10 +17,22 @@ if !has("signs")
  finish
 endif
 
-if &bg == "dark"
- highlight SignColor ctermfg=white ctermbg=blue guifg=white guibg=RoyalBlue3
+if !exists("g:colorscheme_name")
+    let g:colorscheme_name="unknow"
+endif
+
+if g:colorscheme_name == "solarized"
+ if &bg == "dark"
+  highlight SignColor ctermfg=yellow ctermbg=slategray guifg=yellow guibg=slategray
+ else
+  highlight SignColor ctermfg=darkred ctermbg=darkgray guifg=darkred guibg=darkgray
+ endif
 else
- highlight SignColor ctermbg=white ctermfg=blue guibg=grey guifg=RoyalBlue3
+ if &bg == "dark"
+  highlight SignColor ctermfg=white ctermbg=blue guifg=white guibg=RoyalBlue3
+ else
+  highlight SignColor ctermbg=white ctermfg=blue guibg=grey guifg=RoyalBlue3
+ endif
 endif
 
 " ---------------------------------------------------------------------
